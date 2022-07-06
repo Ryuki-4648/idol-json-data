@@ -1,0 +1,67 @@
+[
+  {
+    "generation": "1",
+    "name": "白石 麻衣",
+    "group": "乃木坂",
+    "groupLabel": "nogizaka",
+    "birthday": {
+      "year": "1992",
+      "month": "8",
+      "day": "20"
+    },
+    "title": "＼ 圧 倒 的 透 明 感 ／ 乃木坂46の絶対的エース・まいやん。",
+    "link": "/nogizaka/shiraishi-mai.html"
+    },
+  {
+    "generation": "3",
+    "name": "与田 祐希",
+    "group": "乃木坂",
+    "groupLabel": "nogizaka",
+    "birthday": {
+      "year": "2000",
+      "month": "5",
+      "day": "5"
+    },
+    "title": "朝ご飯は馬刺し。ペットはヤギ。奇想天外・与田ワールド。",
+    "link": "/nogizaka/yoda-yuki.html"
+    },
+  {
+    "generation": "1",
+    "name": "渡辺 梨加",
+    "group": "櫻坂",
+    "groupLabel": "sakurazaka",
+    "birthday": {
+      "year": "1995",
+      "month": "7",
+      "day": "16"
+    },
+    "title": "お顔が美し強すぎるポンコツ最年長。将来の夢はパン屋さん。",
+    "link": "/sakurazaka/watanabe-rika.html"
+    },
+  {
+    "generation": "2",
+    "name": "小坂 菜緒",
+    "group": "日向坂",
+    "groupLabel": "hinatazaka",
+    "birthday": {
+      "year": "2002",
+      "month": "9",
+      "day": "7"
+    },
+    "title": "「儚げ」を具現化したような存在。大阪が生んだ圧倒的美少女。",
+    "link": "/hinatazaka/kosaka-nao.html"
+    },
+  {
+    "generation": "2",
+    "name": "守屋 麗奈",
+    "group": "櫻坂",
+    "groupLabel": "sakurazaka",
+    "birthday": {
+      "year": "2000",
+      "month": "1",
+      "day": "2"
+    },
+    "title": "圧倒的美少女・れなぁ。",
+    "link": "/sakurazaka/moriya-rena.html"
+  }
+]

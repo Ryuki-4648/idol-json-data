@@ -19,6 +19,7 @@
   <link rel="apple-touch-icon" href="/bio/assets/img/common/apple-touch-icon.png">
   <!-- font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,500,700|Open+Sans:700&display=swap">
+  <link rel ="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <!-- css -->
   <link rel="stylesheet" href="/assets/css/style.css">
   <!-- 構造化データ（パンくず） -->
@@ -36,6 +37,13 @@
       ]
     }
   </script>
+  <style>
+    .list-name {
+      font-weight: bold;
+      margin: 0 20px 0 0;
+      letter-spacing: 0.08em;
+    }
+  </style>
 </head>
 
 <body>
@@ -45,12 +53,6 @@
     <!-- /.header -->
 
   <main class="l-main p-update">
-
-    <section class="p-update__kv">
-      <div class="p-update__kv-ttl">
-        <h1 class="p-update__kv-txt">新製品・キャンペーン情報</h1>
-      </div>
-    </section>
 
     <nav class="l-breadcrumb">
       <ul class="l-breadcrumb__list">
@@ -65,7 +67,7 @@
       </ul>
     </nav>
 
-    <section class="p-update__sort">
+    <!--<section class="p-update__sort">
       <div class="p-update__sort__inner">
         <div class="js-sortWrap">
           <dl class="p-update__sort__box">
@@ -103,7 +105,7 @@
           </dl>
         </div>
       </div>
-    </section>
+    </section>-->
 
     <section class="p-update__list">
       <div class="p-update__list__inner">
@@ -124,6 +126,5 @@
   <!-- js -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="/assets/js/idolList.js"></script>
-  <script src="/assets/js/common.js"></script>
 </body>
 </html>

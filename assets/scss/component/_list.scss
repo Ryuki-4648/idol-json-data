@@ -26,6 +26,7 @@
         font-size: 1.5rem;
         font-weight: bold;
         margin: 0 20px 0 0;
+        @include flexbox-align-center;
       }
       &__ttl {
         font-size: 1.5rem;
@@ -46,6 +47,8 @@
         color: $white01;
         padding: 4px 15px;
         font-size: 1.3rem;
+        margin: 0 10px 0 0;
+        letter-spacing: 0.1em;
         &-category {
           &--new {
             @extend #{$list}01__label;
@@ -58,17 +61,17 @@
         }
         &-product {
           @extend #{$list}01__label;
-          background: $blue02;
+          background: #bfbfbf;
         }
       }
-      .label-campaign {
-        background-color: $orange01;
+      .label-nogizaka {
+        background-color: #812990;
       }
-      .label-new {
-        background-color: $blue03;
+      .label-sakurazaka {
+        background-color: #f19db5;
       }
-      .label-product {
-        background-color: $blue04;
+      .label-hinatazaka {
+        background-color: #7cc7e8;
       }
     }
 

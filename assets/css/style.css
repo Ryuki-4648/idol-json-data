@@ -1232,6 +1232,12 @@ ul, li {
   font-size: 1.5rem;
   font-weight: bold;
   margin: 0 20px 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .c-list01__ttl {
@@ -1259,6 +1265,8 @@ ul, li {
   color: #ffffff;
   padding: 4px 15px;
   font-size: 1.3rem;
+  margin: 0 10px 0 0;
+  letter-spacing: 0.1em;
 }
 
 .c-list01__label-category--new {
@@ -1270,19 +1278,19 @@ ul, li {
 }
 
 .c-list01__label-product {
-  background: #002A9C;
+  background: #bfbfbf;
 }
 
-.c-list01 .label-campaign {
-  background-color: #F19E31;
+.c-list01 .label-nogizaka {
+  background-color: #812990;
 }
 
-.c-list01 .label-new {
-  background-color: #19C3BD;
+.c-list01 .label-sakurazaka {
+  background-color: #f19db5;
 }
 
-.c-list01 .label-product {
-  background-color: #00B4E9;
+.c-list01 .label-hinatazaka {
+  background-color: #7cc7e8;
 }
 
 .c-list02__item:not(:last-of-type) {

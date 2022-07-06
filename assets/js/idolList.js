@@ -131,11 +131,12 @@ $.ajax({
 .done(function(data){
   let list = $('.js-jsonList');
   $.each(data, function(i){
-    let time = `<time class="c-list01__date js-itemDate"><span class="js-itemYear">${data[i].date.year}</span>.${data[i].date.month.toString().padStart(2, "0")}.${data[i].date.day.toString().padStart(2, "0")}</time>`;
+    let name = `<span class="list-name">${data[i].name}</span>`;
+    let birthday = `<time class="c-list01__date js-itemDate"><span class="js-itemYear">${data[i].birthday.year}</span>.${data[i].birthday.month.toString().padStart(2, "0")}.${data[i].birthday.day.toString().padStart(2, "0")}</time>`;
     let group = `<span class="c-list01__label label-${data[i].groupLabel} js-category">${data[i].group}</span>`;
-    let name = `<span class="c-list01__label-product">${data[i].name}</span></div>`;
-    let link = `<a href="${data[i].link}" class="c-list01__ttl ${data[i].icon}" target="_blank">${data[i].title}</a>`;
-    list.append(`<li class="c-list01__item js-sortItem" data-year='${data[i].date.year}年' data-category='${data[i].group}' data-name='${data[i].name}'><div class="c-list01__wrap">${time}${group}${name}${link}</li>`);
+    let generation = `<span class="c-list01__label-product">${data[i].generation}期生</span></div>`;
+    let link = `<a href="${data[i].link}" class="c-list01__ttl" target="_blank">${data[i].title}</a>`;
+    list.append(`<li class="c-list01__item js-sortItem" data-year='${data[i].birthday.year}年' data-category='${data[i].group}' data-generation='${data[i].generation}'><div class="c-list01__wrap">${name}${group}${generation}${birthday}${link}</li>`);
   })
 })
 .fail(function(){
