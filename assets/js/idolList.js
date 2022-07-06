@@ -124,7 +124,7 @@ $(function(){
 // 新製品一覧
 // jsonファイルからリスト出力
 $.ajax({
-  url: "/assets/json/idle.json",
+  url: "/assets/json/idol.json",
   type: "GET",
   dataType: "json",
 })
