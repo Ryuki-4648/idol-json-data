@@ -1,0 +1,102 @@
+// breakpoints
+$breakpoints: (
+  "sp": "screen and (max-width: 599px)",
+  "tab": "screen and (max-width: 1023px)",
+  "pc-tab": "screen and (min-width: 600px)",
+  "pc-only": "screen and (min-width: 1024px)",
+  "tab-only": "screen and (min-width: 600px) and (max-width: 1023px)",
+  "pc": "screen and (max-width: 1400px)",
+  // global
+  "g-pc": "print, screen and (min-width: 801px)",
+  "g-tab": "print, screen and (max-width: 1365px) and (min-width: 801px)",
+  "g-sp": "screen and (max-width: 800px)",
+) !default;
+
+@mixin media($breakpoint: sp) {
+  @media #{map-get($breakpoints, $breakpoint)} {
+    @content;
+  }
+}
+
+// font-family
+$font01: 'Noto Sans JP', sans-serif;
+$font02: 'Roboto', sans-serif;
+
+// padding-wide
+$sp-pw: 15px;
+
+// color
+$white01: #ffffff;
+$black01: #222222;
+
+// blue
+$blue01: #0059B3; // ボタン、ヘッダータブ・ロゴ、ホバー時のライン
+$blue02: #002A9C; // お知らせのラベル
+$blue03: #19C3BD; // 新製品・キャンペーンのラベル
+$blue04: #00B4E9; // 新製品・キャンペーンのラベル
+$blue05: #C2E0FF; // ヘッダー コーポレートサイト
+$blue06: #F2F7FA; // メニューボタン お問い合わせフォームの項目背景色
+$blue07: #0071BC; // 矢印
+$blue08: #D7E5EC; // 矢印
+$blue09 : #94EAEE; // スライダーのライン
+$blue10: #799EE4; // スライダーのライン
+$blue11: #004BB1;
+$blue12: #2457B2;
+
+// orange
+$orange01: #F19E31;
+$orange02: #FFC758;
+
+// green
+$green01: #5AD5C1; // スライダーのライン
+
+// gray
+$gray01: #F7F7F7; // コンテンツ背景色
+$gray02: #E2EBF0; // ヘッダーバー、フッター背景色、技術資料
+$gray03: #B1C4CE; // メニュー区切り
+$gray04: #989898; // フィルター背景色
+$gray05: #CDD6DD; // お問い合わせフォームの区切り線
+
+// red
+$red01: #C11313; // カタログ
+$red02: #FF0000; // お問い合わせフォーム 必須ラベル
+
+// yellow
+$yellow01: #CDC111; // 技術資料
+
+$utility-color: (
+  white01: $white01,
+  black01: $black01,
+  blue01: $blue01,
+  blue02: $blue02,
+  blue03: $blue03,
+  blue04: $blue04,
+  blue05: $blue05,
+  blue06: $blue06,
+  blue07: $blue07,
+  blue08: $blue08,
+  blue09: $blue09,
+  blue10: $blue10,
+  blue11: $blue11,
+  blue12: $blue12,
+  orange01: $orange01,
+  orange02: $orange02,
+  gray01: $gray01,
+  gray02: $gray02,
+  gray03: $gray03,
+  gray04: $gray04,
+  gray05: $gray05,
+  red01: $red01,
+  red02: $red02,
+  yellow01: $yellow01,
+);
+
+// transition
+$transition01: .3s;
+$transition02: .8s;
+
+// transform
+$transform01: scale(1.1);
+
+// opacity
+$opacity: 0.7;

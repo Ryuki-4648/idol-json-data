@@ -1,0 +1,12 @@
+.u- {
+  // 値の定義
+  $align-group: baseline, top, middle, bottom, text-top, text-bottom;
+
+  @each $value in $align-group {
+    &align {
+      &--#{$value} {
+        vertical-align: $value !important;
+      }
+    }
+  }
+}

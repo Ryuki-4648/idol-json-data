@@ -1,0 +1,244 @@
+.c- {
+  &list {
+    $list: &;
+
+    /* 
+  　新製品・キャンペーン情報, お知らせ
+    */
+    &01 {
+      margin: 0 auto 40px;
+      @include media(tab) {
+        margin: 0 auto 30px;
+      }
+      &__item {
+        border-bottom: 1px dotted $gray03;
+        padding: 20px 0 30px 0;
+        display: flex;
+        flex-wrap: wrap;
+        @include media(sp) {
+          padding: 15px 0;
+        }
+      }
+      &__wrap {
+        @include flexbox-align-center;
+      }
+      &__date {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0 20px 0 0;
+      }
+      &__ttl {
+        font-size: 1.5rem;
+        margin: 20px 0 0;
+        line-height: 1.7;
+        color: $black01;
+        transition: all .2s;
+        width: 100%;
+        @include media(sp) {
+          margin: 10px 0 0;
+          font-size: 1.4rem;
+        }
+        &:hover {
+          color: $blue01;
+        }
+      }
+      &__label {
+        color: $white01;
+        padding: 4px 15px;
+        font-size: 1.3rem;
+        &-category {
+          &--new {
+            @extend #{$list}01__label;
+            background-color: $blue03;
+          }
+          &--campaign {
+            @extend #{$list}01__label;
+            background-color: $orange01;
+          }
+        }
+        &-product {
+          @extend #{$list}01__label;
+          background: $blue02;
+        }
+      }
+      .label-campaign {
+        background-color: $orange01;
+      }
+      .label-new {
+        background-color: $blue03;
+      }
+      .label-product {
+        background-color: $blue04;
+      }
+    }
+
+    /* 
+    製品・サービスの矢印付きリスト
+    */
+    &02 {
+      &__item {
+        &:not(:last-of-type) {
+          margin: 0 auto 15px;
+          @include media(tab) {
+            margin: 0 auto 8px;
+          }
+        }
+      }
+    }
+
+    &03 {
+      display: flex;
+      &__item {
+        @include flexbox-align-center;
+      }
+      &__link {
+        font-size: 1.5rem;
+        letter-spacing: 0.05em;
+
+        @include media(tab) {
+          font-size: 1.3rem;
+        }
+      }
+    }
+
+    /* 
+    技術資料・カタログ・関連ページ
+    */
+    &04 {
+      &__item {
+        border-top: 1px dotted $gray03;
+        transition: $transition01;
+        padding: 15px 0 0;
+        &:last-child {
+          border-bottom: 1px dotted $gray03;
+        }
+        &:hover {
+          #{$list}04__link {
+            color: $blue01;
+          }
+        }
+        &--plus {
+          @extend #{$list}04__item;
+          position: relative;
+          &::after {
+            @include position-before-after;
+            background: url(/bio/assets/img/common/icon_plus01.svg) no-repeat center center;
+            right: 0;
+            top: 15px;
+            width: 22px;
+            height: 22px;
+            transition: $transition01;
+            pointer-events: none;
+          }
+          &.is-open {
+            padding: 15px 0 0;
+            &::after {
+              content: '';
+              background: url(/bio/assets/img/common/icon_minus.svg) no-repeat center center;
+            }
+          }
+        }
+        &--txt {
+          @extend #{$list}04__item;
+          padding: 15px 0;
+          align-items: center;
+        }
+      }
+      &__link {
+        font-size: 1.5rem;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        display: block;
+        width: 100%;
+        padding: 0 0 15px;
+        cursor: pointer;
+      }
+      &__ttl {
+        font-size: 1.5rem;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+      }
+    }
+
+    /* 
+    技術資料・カタログ・関連ページ
+    */
+    &05 {
+      display: none;
+      &__item {
+        @include flexbox-align-center;
+        font-size: 1.5rem;
+        justify-content: space-between;
+        width: 100%;
+      }
+      &.is-open {
+        display: flex!important;
+      }
+    }
+
+    /* 
+    技術資料・カタログ・関連ページ ラベル部分
+    */
+    &06 {
+      display: flex;
+      &__item {
+        padding: 4px 23px 4px 10px;
+        font-size: 1.3rem;
+        margin: 0 15px 0 0;
+        transition: $transition01;
+        @include hover01;
+        &--tech {
+          @extend #{$list}06__item;
+          background-color: $yellow01;
+          color: $white01;
+          position: relative;
+          &::after {
+            @include arrow-right-white;
+            right: 8px;
+          }
+        }
+        &--catalog {
+          @extend #{$list}06__item;
+          background-color: $red01;
+          color: $white01;
+          position: relative;
+          &::after {
+            @include icon-pdf02;
+            right: 5px;
+          }
+        }
+        &--related {
+          @extend #{$list}06__item;
+          background-color: $blue01;
+          color: $white01;
+          position: relative;
+          &::after {
+            @include arrow-right-white;
+            right: 8px;
+          }
+        }
+        &--none {
+          @extend #{$list}06__item;
+          background-color: $gray02;
+          color: $white01;
+          position: relative;
+          &::after {
+            @include arrow-right-white;
+            right: 8px;
+          }
+          &:hover {
+            opacity: 1;
+          }
+        }
+      }
+    }
+
+
+    /* 
+    新製品・キャンペーン情報、お知らせ一覧 アンカーリンク
+    */
+    &07 {
+      
+    }
+  }
+}

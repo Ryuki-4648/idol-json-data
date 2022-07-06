@@ -1,0 +1,56 @@
+.p- {
+  &update {
+    $update: &;
+
+    // メインビジュアル
+    &__kv {
+      @include kv;
+      background: url(/bio/assets/img/page/update/kv_update01.jpg) no-repeat center center;
+      &-ttl {
+        @include kv-ttl;
+      }
+      &-txt {
+        @include kv-txt;
+      }
+    }
+
+    // 絞り込み
+    &__sort {
+      @include list-sort;
+    }
+
+    &__list {
+      &__inner {
+        @include inner02;
+      }
+    }
+
+    .c- {
+      &list {
+        &01 {
+          &__wrap {
+            @include media(sp) {
+              flex-wrap: wrap;
+            }
+          }
+          &__item {
+            span {
+              &:nth-child(2) {
+                margin: 0 10px 0 0;
+              }
+            }
+            &.is-hide {
+              display: none;
+            }
+          }
+          &__date {
+            @include media(sp) {
+              width: 100%;
+              margin: 0 0 5px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}

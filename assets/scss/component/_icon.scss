@@ -1,0 +1,33 @@
+.c- {
+  &icon {
+    &-pdf {
+      position: relative;
+      &::after {
+        @include icon-pdf01;
+        margin: 0 0 0 16px;
+        @include media(tab) {
+          margin: 0 0 0 8px;
+        }
+      }
+    }
+
+    &-external {
+      position: relative;
+      &::after {
+        @include icon-external;
+        margin: 0 0 0 16px;
+        @include media(tab) {
+          margin: 0 0 0 8px;
+        }
+      }
+    }
+
+    &-lang {
+      position: relative;
+      &::before {
+        @include icon-lang;
+        left: 22px;
+      }
+    }
+  }
+}

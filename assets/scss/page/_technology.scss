@@ -1,0 +1,148 @@
+.p- {
+  &technology {
+
+    &-kv {
+      @include kv;
+      background: url(/bio/assets/img/page/technology/kv_technology01.jpg) no-repeat center center;
+      &-ttl {
+        @include kv-ttl;
+      }
+      &-txt {
+        @include kv-txt;
+      }
+    }
+
+    &-anchor {
+      &__inner {
+        @include inner01;
+      }
+      &__msg {
+        text-align: center;
+        font-size: 2.2rem;
+        margin: 0 auto 60px;
+        line-height: 1.7;
+        @include media(tab) {
+          margin: 0 auto 30px;
+          font-size: 1.8rem;
+        }
+      }
+    }
+
+    &-list {
+      background-color: $gray01;
+      padding: 110px 0 20px;
+      @include media(tab) {
+        padding: 60px 0 0;
+      }
+      &__inner {
+        @include inner01;
+      }
+    }
+
+    &__btn {
+      @extend .c-btn01;
+      &-link {
+        @extend .c-btn01-link;
+        width: 364px;
+        margin: 0 auto 30px;
+        @include media(tab) {
+          margin: 0 auto 20px;
+        }
+        @include media(sp) {
+          width: 100%;
+        } 
+      }
+    }
+
+    .c- {
+      &link {
+        &01 {
+          margin: 0 0 90px;
+          @include media(pc) {
+            flex-wrap: wrap;
+            margin: 0 0 40px;
+          }
+          @include media(tab) {
+            margin: 0 0 20px;
+          }
+          &__item {
+            margin: 0 0 40px;
+            height: 40px;
+            @include media(tab) {
+              width: 50%;
+              margin: 0 0 20px;
+            }
+            @include media(sp) {
+              margin: 0 0 10px;
+              height: 25px;
+            }
+          }
+        }
+      }
+      &list {
+        &04 {
+          &__item {
+            @include flexbox-align-center;
+            justify-content: space-between;
+            width: 100%;
+            flex-wrap: wrap;
+          }
+          &__ttl {
+            width: 150px;
+          }
+        }
+        &05 {
+          width: 100%;
+          flex-wrap: wrap;
+          background-color: $white01;
+          &__item {
+            padding: 12px 10px 12px 20px;
+            border-top: 1px dotted $gray03;
+            flex-wrap: wrap;
+            @include media(sp) {
+              padding: 8px 10px;
+            }
+          }
+        }
+        &06 {
+          @include media(tab) {
+            width: 100%;
+          }
+          @include media(sp) {
+            flex-wrap: wrap;
+          } 
+          &__item {
+            @include media(pc) {
+              margin: 5px 10px 0 0;
+            }
+          }
+        }
+      }
+      &card {
+        &01 {
+          align-items: baseline;
+          &__item {
+            width: calc(100% / 2 - 40px);
+            margin: 0 0 90px;
+            @include media(pc) {
+              width: calc(100% / 2 - 30px);
+            }
+            @include media(tab) {
+              width: 100%;
+              margin: 0 0 40px;
+            }
+          }
+          &__img {
+            height: 263px;
+            @include media(tab) {
+              height: 180px;
+            }
+            @include media(sp) {
+              height: 140px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

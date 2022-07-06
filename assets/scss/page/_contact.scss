@@ -1,0 +1,418 @@
+.p- {
+  &contact {
+    $contact: &;
+
+    padding: 0 0 100px;
+    @include media(tab) {
+      padding: 0 0 50px;
+    }
+
+    // メインビジュアル
+    &__kv {
+      @include kv;
+      background: url(/bio/assets/img/page/contact/kv_contact01.jpg) no-repeat center center;
+      &-ttl {
+        @include kv-ttl;
+      }
+      &-txt {
+        @include kv-txt;
+      }
+    }
+
+    // 注意書きなど
+    &__inner {
+      @include inner01;
+      &-thanks {
+        margin: 0 auto;
+        text-align: center;
+        h2 {
+          color: $blue01;
+          margin: 0 auto 20px;
+        }
+        p {
+          margin: 0 auto 40px;
+        }
+      }
+    }
+
+    &__notice {
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      margin: 0 auto 20px;
+      line-height: 1.7;
+    }
+
+    &__link {
+      font-size: 1.5rem;
+      letter-spacing: 0.05em;
+      color: $blue01;
+      margin: 0 15px 0 0;
+      padding: 0 0 30px 0;
+      display: flex;
+      transition: $transition01;
+      &:hover {
+        opacity: $opacity;
+      }
+      &-icon {
+        margin: 0 0 0 18px;
+      }
+    }
+
+    &__line {
+      border-bottom: 1px solid $blue01;
+      margin: 0 auto 60px;
+      @include media(tab) {
+        margin: 0 auto 30px;
+      }
+    }
+    
+
+    // フォーム
+    &__table {
+      width: 1100px;
+      margin: 0 auto 40px;
+      font-size: 1.5rem;
+      color: $black01;
+      letter-spacing: 0.05em;
+      @include media(tab) {
+        width: 100%;
+      }
+      @include media(sp) {
+        margin: 0 auto 20px;
+      }
+      tr {
+        display: flex;
+        border-top: 1px solid $gray05;
+        @include media(tab) {
+          flex-wrap: wrap;
+        }
+      }
+
+      th {
+        width: 360px;
+        background-color: $blue06;
+        font-size: 1.5rem;
+        font-weight: bold;
+        padding: 20px;
+        text-align: left;
+        display: flex;
+        line-height: 1.7;
+        @include media(tab) {
+          width: 100%;
+          padding: 15px 10px;
+        }
+      }
+
+      td {
+        width: calc(100% - 360px);
+        padding: 20px 40px;
+        @include media(tab) {
+          width: 100%;
+          padding: 15px 10px;
+        }
+      }
+    }
+
+    &__subject {
+      display: flex;
+    }
+
+    &__row {
+      &-product {
+        td {
+          padding: 20px;
+          @include media(tab) {
+            padding: 15px 10px;
+          }
+        }
+      }
+    }
+
+    &__check01 {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      &__item {
+        position: relative;
+        width: 100%;
+        &:not(:last-child) {
+          margin: 0 0 10px;
+        }
+        @include media(pc-only) {
+          &:nth-child(-n+3) {
+            margin: 0 0 20px;
+          }
+          &:nth-child(1), &:nth-child(4) {
+            width: 177px;
+          }
+          &:nth-child(2), &:nth-child(5) {
+            width: 276px;
+          }
+          &:nth-child(3), &:nth-child(6) {
+            width: 205px;
+          }
+        }
+        input[type="checkbox"] {
+          position: absolute;
+          top: 2px;
+        }
+      }
+    }
+
+    &__check02 {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 20px 0 0 0;
+      @include media(tab) {
+        padding: 0 10px;
+      }
+      &__item {
+        width: 100%;
+        background-color: $blue06;
+        border-radius: 20px;
+        padding: 10px 10px 10px 20px;
+        width: 700px;
+        position: relative;
+        @include media(tab) {
+          width: 100%;
+        }
+        &:not(:last-child) {
+          margin: 0 0 10px;
+        }
+        input[type="checkbox"] {
+          position: absolute;
+          top: 12px;
+        }
+      }
+    }
+
+    &__label {
+      width: 50px;
+      height: 23px;
+      color: $white01;
+      font-size: 1.2rem;
+      @include flexbox-align-justify-center;
+      margin: 0 20px 0 0;
+      &--optional {
+        @extend #{$contact}__label;
+        background-color: $blue11;
+      }
+      &--required {
+        @extend #{$contact}__label;
+        background-color: $red02;
+      }
+    }
+
+    &__input {
+      width: 100%;
+      border: 1px solid $gray04;
+      padding: 15px;
+      height: 50px;
+      @include media(tab) {
+        height: 40px
+      }
+      &--zip {
+        @extend #{$contact}__input;
+        width: 300px;
+        margin: 0 25px 0 20px;
+        @include media(tab) {
+          width: 100%;
+          margin: 0 0 10px;
+        }
+      }
+      &::placeholder {
+        color: $gray04;
+      }
+    }
+
+    &__textarea {
+      @extend #{$contact}__input;
+      height: 180px;
+      padding: 20px 15px;
+      @include media(tab) {
+        height: 150px
+      }
+    }
+
+    &__select {
+      position: relative;
+      &::after {
+        content: '';
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 21px 12px 0 12px;
+        border-color: $blue12 transparent transparent transparent;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        pointer-events: none;
+        @include media(tab) {
+          border-width: 14px 8px 0 8px;
+          top: 14px;
+          right: 12px;
+        }
+      }
+      select {
+        color: $gray04;
+        cursor: pointer;
+        @extend #{$contact}__input;
+        @include media(tab) {
+          padding: 5px 10px;
+        }
+      }
+    }
+
+    input[type="checkbox"] + label {
+      cursor: pointer;
+      display: inline-block;
+      position: relative;
+      padding: 0 0 0 30px;
+      &::before {
+        @include position-before-after;
+        display: block;
+        box-sizing: border-box;
+        width: 18px;
+        height: 18px;
+        margin-top: -10px;
+        left: 0;
+        top: 50%;
+        border: 1px solid $blue01;
+        background-color: $white01;
+      }
+    }
+
+    input[type="checkbox"]:checked + label::after {
+      @include position-before-after;
+      display: block;
+      box-sizing: border-box;
+      width: 10px;
+      height: 6px;
+      margin-top: -6px;
+      top: 50%;
+      left: 5px;
+      transform: rotate(-45deg);
+      border-bottom: 2px solid;
+      border-left: 2px solid;
+      border-color: $blue01;
+    }
+
+    &__btn-search {
+      background-color: $blue12;
+      border-radius: 5px;
+      width: 125px;
+      height: 49px;
+      @include flexbox-align-justify-center;
+      color: $white01;
+      font-size: 1.5rem;
+      @include media(tab) {
+        height: 30px;
+        font-size: 1.3rem;
+      }
+    }
+
+    &__zip {
+      td {
+        @include flexbox-align-center;
+        @include media(tab) {
+          flex-wrap: wrap;
+        }
+      }
+      &-mark {
+        color: $gray04;
+        @include media(tab) {
+          margin: 0 0 3px;
+        }
+      }
+    }
+
+    &__btn {
+      display: flex;
+      justify-content: center;
+      @include media(tab) {
+        flex-wrap: wrap;
+        max-width: 500px;
+        margin: 0 auto;
+      }
+      &-confirmWrap {
+        position: relative;
+        margin: 0 40px 0 0;
+        @include media(tab) {
+          margin: 0 0 20px;
+        }
+        @include media(sp) {
+          width: 100%;
+        }
+        &::after {
+          content: '';
+          background-image: url('/bio/assets/img/common/icon_btn01.svg');
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          @include position-center--y;
+          right: 10px;
+          pointer-events: none;
+        }
+      }
+      &-confirm {
+        background-color: $blue01;
+        border: 1px solid $blue01;
+        width: 300px;
+        height: 50px;
+        color: $white01;
+        @include flexbox-align-justify-center;
+        border-radius: 3px;
+        transition: $transition01;
+        &:hover {
+          color: $blue01;
+          background-color: $blue06;
+        }
+        @include media(tab) {
+          width: 400px;
+        }
+        @include media(sp) {
+          width: 100%;
+        }
+      }
+      &-reset {
+        input {
+          font-size: 1.6rem;
+        }
+        color: $blue01;
+        border: 1px solid $blue01;
+        @include flexbox-align-justify-center;
+        width: 200px;
+        height: 50px;
+        border-radius: 3px;
+        transition: $transition01;
+        &:hover {
+          background-color: $blue01;
+          color: $white01;
+        }
+      }
+      &-top {
+        @extend #{$contact}__btn-confirm;
+        margin: 0;
+        position: relative;
+        &::after {
+          content: '';
+          background-image: url('/bio/assets/img/common/icon_btn01.svg');
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          @include position-center--y;
+          right: 10px;
+          pointer-events: none;
+        }
+      }
+    }
+
+    // エラー文
+    &__alert {
+      font-size: 1.3rem;
+      margin: 5px 0 0;
+      color: $red02;
+    }
+
+  }
+}

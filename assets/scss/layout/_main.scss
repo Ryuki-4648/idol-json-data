@@ -1,0 +1,8 @@
+.l- {
+  &main {
+    position: relative;
+    @include media(tab) {
+      padding: 145px 0 0 0;
+    }
+  }
+}

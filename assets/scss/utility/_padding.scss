@@ -1,0 +1,47 @@
+.u- {
+  // 最大余白の定義（5px刻み）
+  $max-space: 60;
+  $count: $max-space / 5 + 1;
+
+  // 余白の種類
+  $padding-group: (
+    t: top,
+    r: right,
+    b: bottom,
+    l: left,
+  );
+
+  // スタイルの定義
+  @mixin padding($direction) {
+    @for $i from 0 to $count {
+      &#{$i * 5} {
+        padding-#{$direction}: 5px * $i !important;
+      }
+    }
+    @for $i from 0 to $count {
+      &--tab {
+        @include media(tab) {
+          &#{$i * 5} {
+            padding-#{$direction}: 5px * $i !important;
+          }
+        }
+      }
+    }
+    @for $i from 0 to $count {
+      &--sp {
+        @include media(sp) {
+          &#{$i * 5} {
+            padding-#{$direction}: 5px * $i !important;
+          }
+        }
+      }
+    }
+  }
+
+  // スタイル出力
+  @each $class, $value in $padding-group {
+    &p#{$class} {
+      @include padding($value);
+    }
+  }
+}

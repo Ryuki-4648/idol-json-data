@@ -1,0 +1,7 @@
+// @function cSize($s, $ds, $suffix:"rem"){
+//   $size: ($s / $ds);
+//   @if($suffix != "rem" and $suffix != "em"){
+//     $size: ($size * 100);
+//   }
+//   @return $size#{$suffix};
+// }

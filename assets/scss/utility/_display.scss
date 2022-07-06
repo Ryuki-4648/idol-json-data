@@ -1,0 +1,91 @@
+.u- {
+  &d {
+    // 表示の種類
+    $display-group: block, inline-block, inline, none;
+
+    // 基本スタイル出力
+    @each $value in $display-group {
+      &--#{$value} {
+        display: $value !important;
+      }
+    }
+    
+    // 画面幅ごとのスタイル
+    &--pc {
+      &-block {
+        display: block !important;
+        @include media(tab) {
+          display: none !important;
+        }
+      }
+      &-none {
+        display: none !important;
+        @include media(tab) {
+          display: block !important;
+        }
+      }
+    }
+    &--tab {
+      &-block {
+        display: none !important;
+        @include media(tab) {
+          display: block !important;
+        }
+        @include media(sp) {
+          display: none !important;
+        }
+      }
+      &-none {
+        display: block !important;
+        @include media(tab) {
+          display: none !important;
+        }
+        @include media(sp) {
+          display: block !important;
+        }
+      }
+    }
+    &--sp {
+      &-block {
+        display: none !important;
+        @include media(sp) {
+          display: block !important;
+        }
+      }
+      &-none {
+        display: block !important;
+        @include media(sp) {
+          display: none !important;
+        }
+      }
+    }
+    &--pctab {
+      &-block {
+        display: block !important;
+        @include media(sp) {
+          display: none !important;
+        }
+      }
+      &-none {
+        display: none !important;
+        @include media(sp) {
+          display: block !important;
+        }
+      }
+    }
+    &--tabsp {
+      &-block {
+        display: none !important;
+        @include media(tab) {
+          display: block !important;
+        }
+      }
+      &-none {
+        display: block !important;
+        @include media(tab) {
+          display: none !important;
+        }
+      }
+    } 
+  }
+}

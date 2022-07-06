@@ -1,0 +1,34 @@
+.u- {
+  // fw
+  $weight-group: bold, normal;
+
+  @each $value in $weight-group {
+    &fw {
+      &--#{$value} {
+        vertical-align: $value !important;
+      }
+    }
+  }
+
+  // text-align
+  $align-group: left, center, right;
+
+  @each $value in $align-group {
+    &text-align {
+      &--#{$value} {
+        text-align: $value !important;
+      }
+    }
+  }
+
+  // text-decoration
+  $decoration-group: underline, none;
+
+  @each $value in $decoration-group {
+    &text-decoration {
+      &--#{$value} {
+        text-decoration: $value !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+// 全ページ共通のタグのスタイルを記述する
+html {
+  font-size: 62.5%;
+  color: $black01;
+  font-family: $font01;
+}
+
+body {
+  font-size: 1.6rem;
+  line-height: 1.25;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+@include media(pc-only) {
+  a[href*="tel:"] {
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+  }
+}
+
+p {
+  letter-spacing: 0.05em;
+}
+
+ul, li {
+  list-style: none;
+}

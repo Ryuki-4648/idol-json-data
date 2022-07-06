@@ -1,0 +1,186 @@
+.l- {
+  &tail {
+    $tail: &;
+    &__wrap {
+      &01 {
+        display: flex;
+        @include media(tab) {
+          flex-wrap: wrap;
+        }
+        #{$tail}__link {
+          width: 50%;
+          @include media(tab) {
+            width: 100%;
+          }
+        }
+      }
+      &02 {
+        #{$tail}__link {
+          width: 100%;
+        }
+      }
+    }
+    &__menu {
+      color: $white01;
+      font-size: 2.4rem;
+      @include flexbox-align-center;
+      position: absolute;
+      @include position-center--y;
+      z-index: 20;
+      filter: drop-shadow(3px 3px 10px $gray04);
+      flex-wrap: wrap;
+      justify-content: center;
+      text-align: center;
+      @include media(sp) {
+        font-size: 1.8rem;
+      }
+      &-ttl {
+        display: inline-block;
+        position: relative;
+        font-size: 2.4rem;
+        margin: 0 auto 30px;
+        width: 100%;
+        @include media(tab) {
+          margin: 0 auto 20px;
+          font-size: 2rem;
+        }
+        @include media(sp) {
+          padding-right: 30px;
+        }
+      }
+      &-detail {
+        font-size: 1.5rem;
+        line-height: 1.7;
+        width: 100%;
+        margin: 0 auto 36px;
+        @include media(tab) {
+          font-size: 1.4rem;
+          margin: 0 auto 20px;
+        }
+      }
+      &-tel {
+        display: flex;
+        @include media(sp) {
+          flex-wrap: wrap;
+        } 
+      }
+      &-wrap {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto 5px;
+      }
+      &-area {
+        font-size: 1.4rem;
+        margin: 0 12px 0 0;
+        line-height: 2.4rem;
+        @include media(tab) {
+          line-height: 2rem;
+        }
+        @include media(sp) {
+          margin: 0 10px 0 0;
+        }
+      }
+      &-num {
+        font-size: 2rem;
+        font-family: $font02;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        @include media(tab) {
+          font-size: 1.8rem;
+        } 
+        &:first-of-type{
+          margin: 0 30px 0 0;
+          @include media(sp) {
+            margin: 0;
+          }
+        }
+      }
+      &-btn {
+        @extend .c-btn03-link;
+        width: 300px;
+        @include media(tab) {
+          height: 40px;
+        }
+      }
+      &-time {
+        font-size: 1.2rem;
+        margin: 0 auto 36px;
+        width: 100%;
+        @include media(sp) {
+          margin: 0 auto 20px;
+        }
+      }
+    }
+    &__link {
+      height: 350px;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+      position: relative;
+      overflow: hidden;
+      @include media(tab) {
+        width: 100%;
+        height: 250px;
+      }
+      &::before {
+        @include position-before-after;
+        display: block;
+        background-color: rgba($color: $black01, $alpha: .5);
+        z-index: 10;
+        width: 100%;
+        height: 350px;
+        @include media(tab) {
+          height: 250px;
+        }
+      }
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        transition: $transition02;
+      }
+      &:hover {
+        /*&::after {
+          transform: $transform01;
+        }*/
+        #{$tail}__menu-icon {
+          &::before {
+            right: -3px;
+            @include media(sp) {
+              right: -2px;
+            }
+          }
+        }
+      }
+      &--catalog {
+        &01 {
+          @extend #{$tail}__link;
+          &::after {
+            background-image: url(/bio/assets/img/top/img_catalog01.jpg);
+            background-repeat: no-repeat;
+          }
+        }
+      }
+      &--inquiry {
+        &01 {
+          @extend #{$tail}__link;
+          &::after {
+            background-image: url(/bio/assets/img/top/img_inquiry01.jpg);
+            background-repeat: no-repeat;
+          }
+        }
+        &02 {
+          @extend #{$tail}__link;
+          &::after {
+            background-image: url(/bio/assets/img/page/common/img_under_contact01.jpg);
+            background-repeat: no-repeat;
+          }
+        }
+      }
+    }
+    
+  }
+}

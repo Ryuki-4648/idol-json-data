@@ -1,0 +1,407 @@
+.p- {
+  &top {
+    $top: &;
+
+    // kv
+    &-kv {
+      position: relative;
+      .add-animation {
+        #{$top}-kv__img {
+          animation: zoomUp 8000ms linear 0ms infinite normal both; 
+        }
+      }
+      .slick-initialized {
+        display: block;
+      }
+      .slick-dots {
+        bottom: 0;
+        right: 10vw;
+        text-align: right;
+        @include media(sp) {
+          right: unset;
+          text-align: center;
+          @include position-center--x;
+        }
+        li {
+          &:nth-child(1) {
+            button {
+              &::before {
+                left: -40px;
+                @include media(sp) {
+                  left: -20px;
+                }
+              }
+            }
+            &.slick-active {
+              button {
+                &:before {
+                  background-color: $blue09;
+                }
+              }
+            }
+          }
+          &:nth-child(2) {
+            button {
+              &::before {
+                left: -20px;
+                @include media(sp) {
+                  left: -10px;
+                }
+              }
+            }
+            &.slick-active {
+              button {
+                &:before {
+                  background-color: $blue10;
+                }
+              }
+            }
+          }
+          &:nth-child(3) {
+            &.slick-active {
+              button {
+                &:before {
+                  background-color: $green01;
+                }
+              }
+            }
+          }
+          &.slick-active {
+            button {
+              &:before {
+                color: $white01;
+                margin: 0 10px 0 0;
+                @include media(sp) {
+                  opacity: 1;
+                }
+                
+              }
+            }
+          }
+          button {
+            &::before {
+              content: '';
+              color: $white01;
+              font-family: unset;
+              height: 3px;
+              width: 30px;
+              border-radius: 2px;
+              background-color: $white01;
+              @include media(sp) {
+                opacity: .5;
+                height: 2px;
+              }
+            }
+          }
+        }
+      }
+      .slick-dotted.slick-slider {
+        margin-bottom: 0;
+      }
+      &__slider {
+        overflow: hidden;
+        display: none;
+        img {
+          max-width: 100%;
+          z-index: 1;
+          @keyframes zoomUp {
+            0% {
+              transform: scale(1);
+            }
+            100% {
+              transform: scale(1.15);
+            }
+          }
+          @include media(sp) {
+            height: 350px;
+            object-fit: cover;
+          } 
+        }
+      }
+      &__box {
+        position: absolute;
+        left: 10%;
+        z-index: 10;
+        @include position-center--y;
+        @include media(tab) {
+          @include position-center--xy;
+          width: 90%;
+        }
+      }
+      &__sub-ttl {
+        color: $orange02;
+      }
+      &__ttl {
+        font-size: 3.6rem;
+        line-height: 2;
+        color: $white01;
+        margin: 0 auto 30px;
+        @include media(tab) {
+          font-size: 2.4rem;
+          margin: 0 auto 10px;
+          line-height: 1.7;
+        }
+        @include media(sp) {
+          font-size: 2.1rem;
+          width: 100%;
+          text-align: center;
+        }
+        &01 {
+          @extend #{$top}-kv__ttl;
+          @include media(tab) {
+          }
+        }
+        &02 {
+          @extend #{$top}-kv__ttl;
+        }
+        &03 {
+          @extend #{$top}-kv__ttl;
+          @include media(tab) {
+          }
+        }
+      }
+      &__msg {
+        font-size: 1.5rem;
+        color: $white01;
+        line-height: 1.7;
+        margin: 0 auto 40px;
+        @include media(tab) {
+          margin: 0 auto 10px;
+          font-size: 1.3rem;
+        }
+        &01 {
+          @extend #{$top}-kv__msg;
+        }
+        &02 {
+          @extend #{$top}-kv__msg;
+        }
+        &03 {
+          @extend #{$top}-kv__msg;
+        }
+      }
+      &__btn {
+        @extend .c-btn03-link;
+        max-width: 300px;
+        margin: 0;
+        @include media(sp) {
+          margin: 0 auto;
+        }
+      }
+      &__line {
+        width: 100%;
+        height: 5px;
+        position: absolute;
+        bottom: 0;
+        z-index: 10;
+        animation: bar 6000ms linear 0ms infinite;
+        @keyframes bar {
+          0% {
+            left: -100%;
+          }
+          100% {
+            left: 100%;
+          }
+        }
+        &01 {
+          @extend #{$top}-kv__line;
+          background-color: $blue09;
+        }
+        &02 {
+          @extend #{$top}-kv__line;
+          background-color: $blue10;
+        }
+        &03 {
+          @extend #{$top}-kv__line;
+          background-color: $green01;
+        }
+      }
+      &__scroll {
+        position: absolute;
+        bottom: -60px;
+        right: -40px;
+        transform: rotate(90deg);
+        letter-spacing: 0.05em;
+        @include media(sp) {
+          bottom: 15px;
+          right: -50px;
+        }
+        a {
+          font-family: $font02;
+          font-weight: 300;
+          color: $gray03;
+          font-size: 1.6rem;
+          transition: $transition02;
+          &:hover {
+            color: $blue01;
+            #{$top}-kv__scroll-border {
+              &::after {
+                background: $blue01;
+              }
+            }
+          }
+          @include media(sp) {
+            font-size: 1.3rem;
+          }
+        }
+        &-border {
+          display: inline-block;
+          width: 100px;
+          height: 1em;
+          margin-left: 18px;
+          overflow: hidden;
+          position: relative;
+          @include media(sp) {
+            width: 60px;
+          }
+          &::after {
+            @include position-before-after;
+            display: block;
+            background: $gray03;
+            width: 100%;
+            height: 1px;
+            top: 60%;
+            left: 0;
+            animation-name: scroll;
+            animation-fill-mode: backwards;
+            animation-duration: 1.5s;
+            animation-iteration-count: infinite;
+            animation-delay: 0s;
+            @keyframes scroll {
+              0% {
+                left: -100%;
+              }
+              100% {
+                left: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // close-up
+    &-close-up {
+      @include top-sec;
+      &__inner {
+        @include inner01;
+      }
+    }
+
+    // topics
+    &-topics {
+      @include top-sec;
+      &__inner {
+        @include inner01;
+      }
+      &__title {
+        @extend .c-title01;
+        margin: 0 auto 40px;
+        @include media(tab) {
+          margin: 0 auto 30px;
+        }
+      }
+      &__btn {
+        @extend .c-btn01;
+        &-link {
+          @extend .c-btn01-link;
+          max-width: 300px;
+        }
+      }
+      &__wrap {
+        display: flex;
+        justify-content: space-between;
+        @include media(tab) {
+          flex-wrap: wrap;
+        }
+      }
+      &__item {
+        max-width: 630px;
+        &:first-child {
+          margin: 0 40px 0 0;
+          @include media(tab) {
+            margin: 0 auto 60px;
+          }
+        }
+        @include media(tab) {
+          max-width: 100%;
+        }
+      }
+      .c- {
+        &list {
+          &01 {
+            &__label {
+              margin: 0 10px 0 0;
+            }
+          }
+        }
+      }
+    }
+
+    // service
+    &-service {
+      @include top-sec;
+      &__inner {
+        @include inner01;
+      }
+      &__btn {
+        @extend .c-btn01;
+        &-link {
+          @extend .c-btn01-link;
+          margin: 0 auto 30px;
+          @include media(tab) {
+            margin: 0 auto 20px;
+          }
+        }
+      }
+    }
+
+    // mail magazine
+    &-magazine {
+      &__inner {
+        @include inner01;
+        padding: 80px 0;
+        text-align: center;
+        @include media(tab) {
+          padding: 40px 15px;
+        }
+      }
+      &__img {
+        transition: all .3s;
+        @include hover01;
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+  // animation
+  .anime-fade-up {
+    animation-name: fadeUp;
+    animation-duration: .8s;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    will-change: opacity;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(50px);
+      will-change: opacity, transform;
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+      will-change: opacity, transform;
+    }
+  }
+
+  .anime-delay01 {
+    animation-delay: 0.8s;
+  }
+  .anime-delay02 {
+    animation-delay: 1s;
+  }
+  .anime-delay03 {
+    animation-delay: 1.2s;
+  }

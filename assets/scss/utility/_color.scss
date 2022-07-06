@@ -1,0 +1,19 @@
+.u- {
+  // color
+  @each $class, $value in $utility-color {
+    &text {
+      &--#{$class} {
+        color: $value !important;
+      }
+    }
+  }
+  
+  // bg
+  @each $class, $value in $utility-color {
+    &bg {
+      &--#{$class} {
+        background-color: $value !important;
+      }
+    }
+  }
+}

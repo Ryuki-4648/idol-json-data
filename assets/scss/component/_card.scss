@@ -1,0 +1,151 @@
+.c- {
+  &card {
+    $card: &;
+
+    /* 
+    ex) 製品・サービス
+    */
+    &01 {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      &__item {
+        width: calc((100% / 3) - 40px);
+        background: $gray01;
+        border-radius: 16px;
+        filter: drop-shadow(10px 10px 15px #ccc) drop-shadow(-10px -10px 15px $white01);
+        position: relative;
+        @include media(tab) {
+          width: 48%;
+        }
+        @include media(sp) {
+          width: 100%;
+          filter: drop-shadow(5px 5px 10px #ccc) drop-shadow(-5px -5px 10px $white01);
+        }
+        &::after {
+          content: '';
+          display: block;
+          background-color: $white01;
+        }
+        &:nth-child(n+4) {
+          margin-top: 60px;
+          @include media(tab) {
+            margin: 0;
+          }
+        }
+        &:nth-child(n+3) {
+          @include media(tab) {
+            margin-top: 30px;
+          }
+        }
+        &:nth-child(n+2) {
+          @include media(sp) {
+            margin-top: 30px;
+          }
+        }
+      }
+
+      &__img {
+        width: 100%;
+        height: 150px;
+        border-radius: 16px 16px 0 0;
+        object-fit: cover;
+      }
+      
+      &__cnt {
+        padding: 20px 40px 35px;
+        @include media(tab) {
+          padding: 15px 15px 25px;
+        }
+      }
+
+      &__ttl {
+        font-size: 2.2rem;
+        font-weight: bold;
+        margin: 0 auto 20px;
+        text-align: center;
+        @include media(tab) {
+          margin: 0 auto 10px;
+          font-size: 1.8rem;
+        }
+      }
+
+      &__txt {
+        font-size: 1.5rem;
+        line-height: 1.7;
+        margin: 0 auto 30px;
+        letter-spacing: 0;
+        @include media(tab) {
+          margin: 0 auto 20px;
+          font-size: 1.4rem;
+        }
+      }
+    }
+
+    /* 
+    ex) バナー画像
+    */
+    &02 {
+      display: flex;
+      justify-content: space-between;
+      @include media(tab) {
+        flex-wrap: wrap;
+      }
+      &__item {
+        width: 30%;
+        text-align: center;
+        filter: drop-shadow(10px 10px 15px #ccc) drop-shadow(-10px -10px 15px $white01);
+        @include media(sp) {
+          width: 48%;
+          filter: drop-shadow(5px 5px 10px #ccc) drop-shadow(-5px -5px 10px $white01);
+        }
+        &:not(:last-child) {
+          @include media(tab) {
+            margin: 0 0 20px;
+          }
+        }
+      }
+      &__link {
+        display: block;
+        border-radius: 16px;
+        overflow: hidden;
+        position: relative;
+        &::before {
+          @include position-before-after;
+          right: 20px;
+          bottom: 15px;
+          width: 12px;
+          height: 12px;
+          border-top: $blue07 3px solid;
+          border-right: $blue07 3px solid;
+          transform: translateY(-50%) rotate(45deg);
+          transition: $transition01;
+          z-index: 1;
+          @include media(sp) {
+            right: 18px;
+            bottom: 13px;
+            width: 10px;
+            height: 10px;
+          }
+        }
+        &:hover {
+          &::before {
+            right: 15px;
+            @include media(sp) {
+              right: 13px;
+            }
+          }
+          #{$card}02__img {
+            transform: $transform01;
+          }
+        }
+      }
+      &__img {
+        display: block;
+        width: 100%;
+        transition: $transition01;
+      }
+    }
+
+  }
+}

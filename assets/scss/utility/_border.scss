@@ -1,0 +1,54 @@
+.u- {
+  &border {
+    // 基本スタイル
+    border: 1px solid $black01;
+
+    // 方向の種類
+    $direction-group: top, right, bottom, left;
+
+    // lineの定義
+    @mixin line($direction) {
+      border-#{$direction}: 1px solid $black01 !important;
+    }
+    // line
+    @each $value in $direction-group {
+      &--#{$value} {
+        @include line($value);
+      }
+    }
+    
+    // line-noneの定義
+    @mixin line-none($direction) {
+      border-#{$direction}: 0 !important;
+    }
+    // line-none
+    &0 {
+      border: 0 !important;
+    }
+    @each $value in $direction-group {
+      &--#{$value}-0 {
+        @include line-none($value);
+      }
+    }
+
+    // line-color
+    @each $class, $value in $utility-color {
+      &--#{$class} {
+        border-color: $value !important;
+      }
+    }
+
+    // line-width
+    // 最大幅の定義（px単位）
+    $max-width: 5;
+    $width-count: $max-width + 1;
+    
+    &--width {
+      @for $i from 1 to $width-count {
+        &-#{$i} {
+          border-width: #{$i}px !important;
+        }
+      }
+    }
+  }
+}

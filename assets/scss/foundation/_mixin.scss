@@ -1,0 +1,251 @@
+// common
+@mixin hover01 {
+  &:hover {
+    opacity: $opacity;
+  }
+}
+
+@mixin position-before-after {
+  content: "";
+  position: absolute;
+}
+
+@mixin position-center--x {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin position-center--y {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin position-center--xy {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin flexbox-align-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flexbox-align-justify-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// inner
+@mixin inner01 {
+  max-width: 1440px;
+  padding: 0 20px;
+  margin: 0 auto;
+  @include media(pc) {
+    max-width: 1100px;
+  }
+  @include media(tab) {
+    width: 100%;
+    padding: 0 $sp-pw;
+  }
+}
+@mixin inner02 {
+  max-width: 1240px;
+  padding: 0 20px;
+  margin: 0 auto;
+  @include media(pc) {
+    max-width: 1000px;
+  }
+  @include media(tab) {
+    width: 100%;
+    padding: 0 $sp-pw;
+  }
+}
+
+// mark
+// arrow
+@mixin arrow-right-white {
+  @include position-before-after;
+  @include position-center--y;
+  border-top: 2px solid $white01;
+  border-right: 2px solid $white01;
+  transform: translateY(-50%) rotate(45deg);
+  width: 6px;
+  height: 6px;
+}
+
+// pdf
+@mixin icon-pdf01 {
+  @include position-before-after;
+  background-image: url(/bio/assets/img/common/icon_pdf01.svg);
+  width: 17px;
+  height: 22px;
+  transition: $transition01;
+}
+
+@mixin icon-pdf02 {
+  @include position-before-after;
+  background-image: url(/bio/assets/img/common/icon_pdf02.svg);
+  width: 11px;
+  height: 15px;
+}
+
+// external
+@mixin icon-external {
+  @include position-before-after;
+  @include position-center--y;
+  background-image: url(/bio/assets/img/common/icon_external01.svg);
+  width: 13px;
+  height: 11px;
+}
+
+// lang
+@mixin icon-lang {
+  @include position-before-after;
+  @include position-center--y;
+  background-image: url(/bio/assets/img/common/icon_lang01.svg);
+  width: 12px;
+  height: 12px;
+}
+
+// kv
+@mixin kv {
+  height: 458px;
+  position: relative;
+  @include media(tab) {
+    height: 350px;
+  }
+  @include media(sp) {
+    height: 280px;
+  }
+}
+
+@mixin kv-ttl {
+  position: absolute;
+  @include position-center--y;
+  left: 0;
+  background-color: rgba(255, 255, 255, .9);
+}
+
+@mixin kv-txt {
+  font-size: 3.2rem;
+  padding: 36px 100px 36px 260px;
+  @include media(tab) {
+    font-size: 2.8rem;
+    padding: 18px 50px 18px 80px;
+  }
+  @include media(sp) {
+    font-size: 2.4rem;
+    padding: 18px 30px 18px 40px;
+  }
+  &::after {
+    @include position-before-after;
+    top: 0px;
+    border: none;
+    right: -50px;
+    border-right: 50px solid transparent;
+    border-top: 112px solid rgba(255, 255, 255, .9);
+    @include media(tab) {
+      right: -30px;
+      border-right: 30px solid transparent;
+      border-top: 66px solid rgba(255, 255, 255, .9);
+    }
+  }
+}
+
+// p-top
+@mixin top-sec {
+  padding: 100px 0;
+  @include media(tab) {
+    padding: 50px 0;
+  }
+}
+
+
+// sort(新製品・キャンペーン情報、お知らせ一覧)
+@mixin list-sort {
+  margin: 0 auto 10px; 
+  @include media(tab) {
+    margin: 0 auto 20px;
+  }
+  &__inner {
+    @include inner01;
+    border-bottom: 1px solid $blue01;
+    padding: 0 20px 30px;
+    @include media(pc) {
+      border-bottom: none;
+    }
+  }
+  &__index {
+    width: 84px;
+    border-right: 1px solid $blue01;
+    margin: 0 20px 0 0;
+    @include media(pc) {
+      width: 100%;
+      border-bottom: 1px solid $blue01;
+      border-right: none;
+      margin: 0 0 20px;
+      padding: 0 0 10px;
+    }
+  }
+  &__box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:not(:last-child) {
+      margin: 0 auto 30px;
+    }
+    @include media(pc) {
+      flex-wrap: wrap;
+    }
+  }
+  &__list-wrap {
+    width: calc(100% - 84px);
+    @include media(pc) {
+      width: 100%;
+    }
+  }
+  &__list {
+    display: flex;
+    @include media(pc) {
+      flex-wrap: wrap;
+    }
+  }
+  &__item {
+    &:not(:last-child) {
+      margin: 0 10px 0 0;
+      @include media(pc) {
+        margin: 0 8px 8px 0;
+      }
+      @include media(sp) {
+        margin: 0 4px 6px 0;
+      }
+    }
+    @include media(tab) {
+      width: 30%;
+    }
+    @include media(sp) {
+      width: 48%;
+    }
+  }
+  input {
+    display: none;
+    &:checked + span {
+      color: $white01;
+      background-color: $blue01;
+    }
+  }
+  span {
+    @extend .c-btn02;
+    max-width: 172px;
+    height: 36px;
+    cursor: pointer;
+    @include media(tab) {
+      width: 100%;
+    }
+    @include media(sp) {
+      height: 25px;
+    }
+  }
+}

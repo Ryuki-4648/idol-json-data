@@ -1,0 +1,558 @@
+.l- {
+  &header {
+    $header: &;
+    // ヘッダーバー
+    &-bar {
+      position: fixed;
+      top: 0;
+      z-index: 100;
+      width: 100%;
+      background-color: $gray02;
+      border-bottom: 1px solid $blue01;
+      font-family: $font01;
+      line-height: 1.25;
+      letter-spacing: 0;
+
+      &__logo {
+        background-color: $blue01;
+        @include flexbox-align-center;
+        padding: 0 0 0 5vw;
+        height: 40px;
+        position: relative;
+        @include media(pc) {
+          padding: 0 0 0 3vw;
+        }
+        @include media(tab) {
+          width: 100%;
+        }
+        @include media(sp) {
+          padding: 10px $sp-pw;
+        }
+        &-img {
+          transition: $transition01;
+          width: 200px;
+          @include hover01;
+        }
+        &::after {
+          @include position-before-after;
+          top: 0px;
+          border: none;
+          right: -20px;
+          border-left: 20px $blue01 solid;
+          border-bottom: 40px transparent solid;
+          @include media(tab) {
+            content: none;
+          }
+        }
+        &-txt {
+          color: $white01;
+          font-size: 13px;
+          letter-spacing: 0.05em;
+          margin: 0 0 0 10px;
+          @include media(pc) {
+            display: none;
+          }
+          @include media(tab) {
+            display: none;
+          }
+        }
+      }
+      &__nav {
+        display: flex;
+        @include media(tab) {
+          width: 100%;
+          padding: 10px;
+          justify-content: space-between;
+        }
+        @include media(tab) {
+          padding: 4px $sp-pw;
+        } 
+      }
+      &__tab {
+        display: flex;
+        &-item {
+          margin: 6px auto 0;
+          @include flexbox-align-center;
+          padding: 0 10px;
+          cursor: pointer;
+          @include media(tab) {
+            margin: 0;
+            height: 35px;
+          }
+          &:nth-child(1) {
+            background-color: $blue01;
+            border-radius: 3px 0 0 0;
+            padding: 0 10px;
+            #{$header}-bar__tab-item-link {
+              color: $white01;
+            }
+            transition: $transition01;
+            @include hover01;
+            @include media(tab) {
+              display: none;
+            }
+          }
+          &:nth-child(2) {
+            background-color: $white01;
+            border-radius: 0 3px 0 0;
+            padding: 0 35px 0 15px;
+            @include media(tab) {
+              background-color: transparent;
+              border-radius: 0;
+              padding: 0;
+            }
+            &:hover {
+              #{$header}-bar__tab-item-text {
+                &::after {
+                  border-right: 3px solid $blue08;
+                  border-bottom: 3px solid $blue08;
+                  @include media(tab) {
+                    border-right: 2px solid $blue01;
+                    border-bottom: 2px solid $blue01;
+                  }
+                }
+              }
+            }
+          }
+          &-link, &-text {
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            @include media(tab) {
+              font-size: 14px;
+            }
+          }
+          &-link {
+            color: $white01;
+          }
+          &-text {
+            position: relative;
+            &::after {
+              @include position-before-after;
+              @include position-center--y;
+              top: calc(50% - 1px);
+              right: -20px;
+              width: 10px;
+              height: 10px;
+              border-right: 3px solid $blue02;
+              border-bottom: 3px solid $blue02;
+              transform: translateY(-50%) rotate(45deg);
+              transition: $transition01;
+              @include media(tab) {
+                right: -15px;
+                width: 7px;
+                height: 7px;
+                border-right: 2px solid $blue02;
+                border-bottom: 2px solid $blue02;
+              }
+            }
+          }
+          &.is-open {
+            .l-header-bar__tab-item-text {
+              &::after {
+                border-right: 3px solid $blue08;
+                border-bottom: 3px solid $blue08;
+                @include media(tab) {
+                  border-right: 2px solid $blue02;
+                  border-bottom: 2px solid $blue02;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &__corp {
+        @include flexbox-align-center;
+        background-color: $blue05;
+        margin: 0 0 0 30px;
+        padding: 0 5vw 0 2vw;
+        position: relative;
+        font-size: 16px;
+        transition: $transition01;
+        @include media(pc) {
+          margin: 0 0 0 20px;
+          padding: 0 3vw 0 1vw;
+          font-size: 13px;
+        }
+        @include media(tab) {
+          background-color: transparent;
+          border-radius: 0;
+          margin: 0;
+          padding: 0;
+          height: 35px;
+        }
+        &:hover {
+          color: $blue01;
+        }
+        &::before {
+          @include position-before-after;
+          top: 0px;
+          border: none;
+          left: -10px;
+          border-right: 10px solid $blue05;
+          border-top: 40px solid transparent;
+          @include media(tab) {
+            content: none;
+          }
+        }
+        &-icon {
+          @extend .c-icon-external;
+          padding: 0 0 0 10px;
+          vertical-align: inherit;
+        }
+        &-name {
+          @include media(sp) {
+            display: none;
+          }
+        }
+      }
+
+      &__inner {
+        display: flex;
+        justify-content: space-between;
+        @include media(tab) {
+          flex-wrap: wrap;
+        }
+      }
+    }
+
+    // ドロップメニュー
+    &-drop-menu {
+      display: none;
+      position: absolute;
+      width: 100%;
+      top: 40px;
+      padding: 40px 0;
+      z-index: 100;
+      background-color: $white01;
+      &__inner {
+        max-width: 1240px;
+        margin: 0 auto;
+        text-align: center;
+        padding: 0 20px;
+        @include media(tab) {
+          width: 100%;
+          padding: 0 $sp-pw;
+        }
+      }
+      &__ttl {
+        font-size: 24px;
+        font-weight: bold;
+        letter-spacing: 0.05em;
+        padding: 0 0 20px 0;
+        border-bottom: 1px solid $blue01;
+        margin: 0 auto 30px;
+        text-align: left;
+        @include media(tab) {
+          font-size: 18px;
+          padding: 0 0 10px 0;
+          margin: 0 auto 20px;
+        }
+      }
+      &__item {
+        position: relative;
+        &:last-of-type {
+          #{$header}-drop-menu__btn-list {
+            margin-bottom: 0;
+          }
+        }
+      }
+      &__btn {
+        &-list {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0 auto 40px;
+          justify-content: space-between;
+          @include media(tab) {
+            margin: 0 auto 30px;
+          }
+          &::before, &::after {
+            content: "";
+            display: block;
+            width: 270px;
+            height: 0;
+          }
+          &::before {
+            order: 1;
+          }
+          &::after {
+            height: 0;
+          }
+        }
+        &-item {
+          border-radius: 30px;
+          @include media(pc) {
+            margin: 0 0 20px;
+          }
+          @include media(tab) {
+            width: 30%;
+            margin: 0 0 10px;
+          }
+          @include media(sp) {
+            width: 49%;
+            margin: 0 0 10px;
+          }
+          &:nth-last-of-type(-n+2) {
+            @include media(tab) {
+              margin-bottom: 0;
+            }
+          }
+        }
+        &-link {
+          @extend .c-btn02;
+          font-size: 15px;
+          @include media(tab) {
+            font-size: 13px;
+          }
+        }
+      }
+      &__toggle {
+        cursor: pointer;
+        height: 30px;
+        width: 30px;
+        top: 10px;
+        right: 0;
+        position: absolute;
+        @include media(tab) {
+          top: 0;
+        }
+        &-line {
+          border-top: 2px solid $blue01;
+          width: 30px;
+          display: block;
+          transition: .35s ease-in-out;
+          border-radius: 3px;
+          position: absolute;
+          &:nth-child(1) {
+            transform: rotate(45deg);
+            top: 13px;
+          }
+          &:nth-child(2) {
+            transform: rotate(-45deg);
+            top: 14px;
+          }
+        }
+      }
+    }
+
+    // ヘッダーナビ
+    &-menu {
+      height: 110px;
+      background-color: $white01;
+      @include flexbox-align-center;
+      padding: 0 5vw;
+      @include media(pc) {
+        padding: 0 3vw;
+      }
+      @include media(tab) {
+        height: 60px;
+        padding: 0;
+        width: 100%;
+        z-index: 99;
+        position: fixed;
+        top: 84px;
+      }
+      &.is-fixed {
+        @include media(tab) {
+          position: fixed;
+          width: 100%;
+          z-index: 100;
+          top: 84px;
+        }
+      }
+      &__inner {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        @include media(tab) {
+          position: relative;
+          height: 60px;
+          padding: 0 $sp-pw;
+        }
+      }
+      &__logo {
+        @include media(tab) {
+          position: absolute;
+          top: 15px;
+        }
+        &-img {
+          transition: $transition01;
+          width: 100%;
+          @include media(tab) {
+            width: 250px;
+          }
+          &:hover {
+            opacity: .7;
+          }
+        }
+      }
+      &__nav {
+        display: flex;
+        @include media(tab) {
+          position: absolute;
+          top: 58px;
+          z-index: -10;
+          right: 0;
+          left: 0;
+          display: flex;
+          flex-wrap: wrap;
+          opacity: 0;
+          transition: $transition02;
+          visibility: hidden;
+          &.is-open {
+            width: 100vw;
+            z-index: 10;
+            right: 0;
+            background-color: $white01;
+            padding: 5vw 0 0;
+            opacity: 1;
+            visibility: visible
+          }
+        }
+        &-item {
+          @include flexbox-align-center;
+          @include media(tab) {
+            width: 100%;
+          }
+          &:not(:last-child) {
+            #{$header}-menu__nav-link {
+              border-right: 1px solid $gray03;
+              @include media(tab) {
+                border-right: none;
+                border-bottom: 1px solid $gray03;
+              }
+            }
+          }
+          &:last-child {
+            #{$header}-menu__nav-link {
+              padding-right: 0;
+              @include media(tab) {
+                padding: 0 0 0 $sp-pw;
+              }
+            }
+            #{$header}-menu__nav-link {
+              &::after {
+                left: 72%;
+              }
+              &:hover {
+                &::after {
+                  width: 80%;
+                }
+              }
+            }
+          }
+          &:not(:last-child) {
+            #{$header}-menu__nav-link {
+              border-right: 1px solid $gray03;
+              @include media(tab) {
+                border-right: none;
+                border-bottom: 1px solid $gray03;
+              }
+            }
+          }
+        }
+        &-link {
+          padding: 0px 2vw;
+          position: relative;
+          font-size: 15px;
+          letter-spacing: 0.05em;
+          transition: $transition01;
+          @include media(tab) {
+            padding: 0 0 20px $sp-pw;
+            margin: 0 auto 20px;
+            width: 100%;
+          }
+          &::after {
+            @include position-before-after;
+            @include position-center--x;
+            width: 0;
+            background-color: $blue01;
+            height: 1px;
+            bottom: -16px;
+            transition: width $transition01;
+            @include media(tab) {
+              content: none
+            }
+          }
+          &:hover {
+            &:after {
+              width: calc(100% - 80px);
+            }
+            @include media(tab) {
+              color: $blue01
+            }
+          }
+          &-lang {
+            @extend .c-icon-lang;
+            margin: 0 0.5vw 0 0;
+          }
+        }
+      }
+    }
+
+    // スマホナビ
+    &-gnav {
+      display: none;
+      @include media(tab) {
+        display: flex;
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        right: $sp-pw;
+        top: 10px;
+        cursor: pointer;
+      }
+      &__toggle {
+        &-line {
+          border-top: 2px solid $blue01;
+          width: 30px;
+          display: block;
+          transition: .35s ease-in-out;
+          border-radius: 3px;
+          position: absolute;
+          &:nth-child(1) {
+            top: 10px;
+          }
+          &:nth-child(2) {
+            top: 20px;
+          }
+          &:nth-child(3) {
+            top: 30px;
+          }
+        }
+      }
+      &.is-open {
+        .l-header-gnav__toggle-line:nth-child(1) {
+          transform: rotate(45deg);
+          top: 20px;
+        }
+        .l-header-gnav__toggle-line:nth-child(2) {
+          transform: rotate(-45deg);
+        }
+        .l-header-gnav__toggle-line:nth-child(3) {
+          display: none;
+        }
+      }
+    }
+
+    &-layer {
+      width: 100%;
+      height: 0;
+      background-color: rgba(0,0,0,0.5);
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -3;
+      opacity: 0;
+      transition: opacity .2s 0s, height 0s .3s;
+      &.is-dark {
+        opacity: 1;
+        height: 100%;
+        z-index: 98;
+        transition: opacity .2s .1s, height 0s 0s;
+        top: 40px;
+      }
+    }
+  }
+}

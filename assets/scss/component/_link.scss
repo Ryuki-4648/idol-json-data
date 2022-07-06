@@ -1,0 +1,108 @@
+.c- {
+  &link {
+    $link: &;
+    &01 {
+      display: flex;
+      justify-content: space-between;
+      &__item {
+        border-left: 1px solid $gray03;
+        &:last-child {
+          border-right: 1px solid $gray03;
+          @include media(tab) {
+            border-right: none;
+          } 
+        }
+        &--arrow {
+          @extend #{$link}01__item;
+          position: relative;
+          transition: $transition01;
+          width: 20%;
+          display: flex;
+          justify-content: center;
+          @include media(tab) {
+            align-items: center;
+          }
+          &::after {
+            @include position-before-after;
+            bottom: 0;
+            @include position-center--x;
+            width: 10px;
+            height: 10px;
+            border-right: 2px solid $blue07;
+            border-bottom: 2px solid $blue07;
+            transform: translateY(-50%) rotate(45deg);
+            transition: $transition01;
+            @include media(tab) {
+              bottom: unset;
+              left: unset;
+              right: 10px;
+            }
+            @include media(sp) {
+              right: 0;
+              width: 6px;
+              height: 6px;
+            } 
+          }
+          &:hover {
+            color: $blue07;
+            &::after {
+              bottom: -5px;
+            }
+          }
+          &:nth-child(odd) {
+            &::after {
+              @include media(tab) {
+                right: 20px;
+              }
+              @include media(sp) {
+                right: 10px;
+              }
+            }
+          }
+        }
+      }
+      &__link {
+        font-size: 1.4rem;
+        font-weight: bold;
+        @include media(sp) {
+          font-size: 1.2rem;
+        } 
+      }
+    }
+
+    &02 {
+      font-size: 1.4rem;
+      transition: $transition01;
+      padding-right: 30px;
+      position: relative;
+      @include media(sp) {
+        padding-right: 25px;
+      }
+      &::before {
+        @include position-before-after;
+        right: 8px;
+        bottom: 0;
+        width: 9px;
+        height: 9px;
+        border-top: 3px solid $blue07;
+        border-right:3px solid $blue07 ;
+        transform: translateY(-50%) rotate(45deg);
+        transition: $transition01;
+        @include media(sp) {
+          right: 7px;
+          width: 8px;
+          height: 8px;
+        }
+      }
+      &:hover {
+        color: $blue01;
+        &::before {
+          right: 3px;
+          @include media(sp) {
+            right: 2px;
+          }
+        }
+      }
+    }
+  }
+}

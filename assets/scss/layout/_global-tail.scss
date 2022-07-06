@@ -1,0 +1,95 @@
+.l- {
+  &global-tail {
+    $global-tail: &;
+    font-family: $font01;
+    background: url(/bio/assets/img/common/bg_gray-wave01.jpg) no-repeat center/cover;
+
+    &__inner {
+      margin: 0 auto;
+      @include media(g-pc) {
+        max-width: 1266px;
+        padding: 80px 83px;
+      }
+      @include media(g-tab) {
+        padding: 5.85652vw 6.07613vw;
+      }
+      @include media(g-sp) {
+        padding: 7vw 5vw;
+      }
+    }
+
+    &__card {
+      &-list {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+      &-item {
+        box-shadow: 0 0 10px rgba(6, 0, 1, 0.2);
+        @include media(g-pc) {
+          width: calc(50% - 30px);
+        }
+        @include media(g-tab) {
+          width: calc(50% - 2.19619vw);
+        }
+        @include media(g-sp) {
+          width: 100%;
+        }
+        &:not(:last-of-type) {
+          @include media(g-sp) {
+            margin-bottom: 2.0em;
+          }
+        }
+        &--update {
+          @extend #{$global-tail}__card-item;
+          background: url(/bio/assets/img/common/bg_atomic01.png) no-repeat left/auto 100%, $white01;
+        }
+        &--news {
+          @extend #{$global-tail}__card-item;
+          background: url(/bio/assets/img/common/bg_gene01.png) no-repeat left/auto 100%, $white01;
+        }
+      }
+      &-item-inner {
+        @include media(g-pc) {
+          padding: 40px 40px 40px 200px;
+        }
+        @include media(g-tab) {
+          padding: 2.30769vw 2.30769vw 2.30769vw 14.61538vw;
+        }
+        @include media(g-sp) {
+          padding: 5vw 5vw 5vw 32vw;
+        }
+      }
+      &-title {
+        font-weight: bold;
+        line-height: 1.6;
+        text-align: center;
+        margin-bottom: 1.2em;
+        @include media(g-pc) {
+          font-size: 22px;
+        }
+        @include media(g-tab) {
+          font-size: 18px;
+        }
+        @include media(g-sp) {
+          font-size: 15px;
+        }
+      }
+      &-btn {
+        @extend .c-btn01;
+        &-link {
+          @extend .c-btn01-link;
+          @include media(g-pc) {
+            font-size: 16px;
+          }
+          @include media(g-sp) {
+            font-size: 14px;
+          }
+          &:hover {
+            color: $white01;
+          }
+        }
+      }
+    }
+  }
+}
